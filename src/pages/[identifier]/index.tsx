@@ -27,7 +27,6 @@ const Move: NextPage = () => {
                         <p>PP: {move?.pp}</p>
                         <p>Potential Damage: {move?.damage * move?.pp}</p>
                     </div>
-                    
                 </div>
             </main>
         </> 

@@ -33,7 +33,7 @@ export const Table = ({
             .filter((header) => header.columns === undefined)
             .map((header) => (
               // eslint-disable-next-line react/jsx-key
-              <th className="border-b p-4" {...header.getHeaderProps()}>
+              <th className="border-b p-4 uppercase" {...header.getHeaderProps()}>
                 {header.render("Header")}
               </th>
             ))}
