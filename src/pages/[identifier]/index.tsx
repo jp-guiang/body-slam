@@ -8,18 +8,28 @@ const Move: NextPage = () => {
     const router = useRouter()
     const { query } = router
 
-    const move = moves.find(move => move.identifier === query.identifier)
+    const move = query.identifier ? moves.find(move => move.identifier === query.identifier) : null;
+  
+    if (!move) {
+      return <p>Loading...</p>;
+    }
+
+    const imagePath  = move.image ? `/moves/${move.image}` : snorlax;
 
     return (
         <>
             <main className="container mx-auto flex flex-col justify-center p-4">
                 <div className="flex">
-                    <Image
-                        src={snorlax}
-                        alt="Snorlax image"
-                        height={513}
-                        className="pr-12"
-                    />
+                    <div className="w-1/2 relative h-64">
+                        <Image
+                            src={imagePath}
+                            alt="Snorlax image"
+                            fill
+                            style={{ objectFit: 'contain' }}
+                            className="w-12 pr-12"
+                        />
+                    </div>
+                    
                     <div>
                         <p>Name: {move?.name}</p>
                         <p>Type: {move?.type}</p>
