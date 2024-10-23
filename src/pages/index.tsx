@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/future/image";
-import snorlax from "public/snorlax.webp";
+import Image from "next/image";
+import snorlax from "../../public/snorlax.webp";
 import moves from "../data/moves.json";
 import { useCallback, useMemo } from "react";
 import { Move } from "../types/moves";
