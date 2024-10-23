@@ -2,7 +2,6 @@ import type {NextPage} from "next"
 import { useRouter } from "next/router";
 import moves from "../../data/moves.json";
 import snorlax from "../../../public/snorlax.webp";
-import Head from "next/head";
 import Image from "next/image";
 
 const Move: NextPage = () => {
@@ -13,11 +12,6 @@ const Move: NextPage = () => {
 
     return (
         <>
-            <Head>
-                <title>Body Slam</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
             <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-4">
                 <div className="flex">
                     <Image
