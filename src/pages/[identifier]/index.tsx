@@ -12,7 +12,7 @@ const Move: NextPage = () => {
 
     return (
         <>
-            <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-4">
+            <main className="container mx-auto flex flex-col justify-center p-4">
                 <div className="flex">
                     <Image
                         src={snorlax}
