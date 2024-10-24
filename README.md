@@ -1,41 +1,72 @@
-# Body slam
+# Body Slam
+This is my take on a Snorlax abilities app that can list Snorlax's abilities.
+## Features
+- Home page listing Snorlax's possible moves/abilities
+- Each ability page will give a breakdown of damage, power points and potential damage
+- The individual ability page also will displayed in the move type's colour scheme
+- Individual ability pages also displays an image or gif of Snorlax using that move, otherwise it will show a default image of snorlax
 
-Body slam is a tech test template. Please read the following and crack into it when you're ready.
+## Tech
 
-## Instructions
+In this task I used a mix of technologies I was familiar with. This was my first time using Next.js in a project and I quickly saw its advantages.
 
-Imagine this is a real app. It takes some source data about what moves Snorlax can learn and displays it in a table. The data is stored in a JSON file. There will never be more than say 10 or 15 moves that Snorlax can learn, so the table won't ever need pagination, sorting etc.
+- [React] - The library for web and native user interfaces
+- [Next.js] - The React Framework for the Web
+- [node.js] - free, open-source, cross-platform environment that lets developers create servers, web apps, command line tools and scripts
+- [Tailwind CSS] - build modern websites without ever leaving your HTML
 
-The app is intended to be used by Snorlax trainers to help them decide which moves to teach their Snorlax. At this stage, you're expecting a couple hundred users at most, and very limited development in the future beyond the tasks described below.
+## Installation
 
-You're welcome to change anything you want about the app, data structure, components, style system, table, types etc, but you don't need to. Please explain if you do so. The only thing we ask that you don't do is add any more moves.
+Install the dependencies and devDependencies and start the server.
 
-Plan to spend 1-2 hours on it. If you're not done in 2 hours, that's fine, just send us what you have. We're not looking for perfection, just a sense of how approach problems. There's no hidden tricks, tests or gotchas. If you have any questions, feel free to ask.
+```sh
+npm i
+npm run dev
+```
 
------
+Open [localhost:3000]
 
-## Setup
+## Testing
 
-- clone the repo
-- `npm i`
-- `npm run dev`
-- open `http://localhost:3000` in your browser
-- do the following tasks
-- push up into your own github repo and send us the link
+Unfortunately I was not able to write any tests, but I would have gone with [Vitest].
 
-## Tasks
+Tests I would have liked to write would be:
+- Checking if the home screen was loading the abilities correctly
+- Calculating damage potential with missing damage or pp
+- Trying to access a non-existent move
+- Loading ability page when there is no image of Snorlax provided
+- Checking if the colours for the ability type is loading correctly or if the type doesn't exist
 
-We want to make some minor improvements:
+## Wrap Up
+I this app were to be scaled up to include all Pokemon and abilities this is how I would approach the task.
 
-- Make the moves in the table clickable, taking you to a page dedicated to each move. You're welcome to do whatever you want with the Table component. It's a bit of a mess.
-- The new move specific pages should render the move's name, type, and power, as well as an image of a snorlax using the move (find these on google search, don't spend much time on this, just get any old img if you can't find a good fit quickly).
-- The move specific pages should be styled with a page background color loosely fitting the move e.g. black for hyper beam, pink for rest etc.
-- Add a header with a link that takes you back to the main page with snorlax and his moves.
+- Start using the Pokemon API to get relevant Pokemon and abilities information
+    - Pokemon API is pretty slow so will need to use Pagination when loading Pokemon
+    - Rate limiting has been removed by the Pokemon API so we don’t need to worry that our users will crash it
+    - Non-MVP task but having a search bar to find Pokemon will be very useful considering there are 1025 Pokemon
+- Images of the Pokemon using all the abilities likely won't make it to the MVP
+    - There are 1025 Pokemon and 934 abilities, which is too much for an MVP
+    - Will likely end up being a separate project to get all of the images and deploy it as a rolling update
+- Probably will forego making a separate individual ability page since the images won't be included anyway
+    - The new individual Pokemon page will include damage potential in the table
+    - Maybe the type text can be formatted to the associate type colour
+- Host the website using AWS services so we can scale up or down depending on the amount of users that use the app
 
-Wrapup:
+### Stories and Timeboxing
+1. Home page with all the Pokemon
+    - Front end: make home page - 2 days with testing
+    - Back end: create API calls using the Pokemon API to return a list of all Pokemon - 1 day with testing
+2. Clicking a Pokemon to send them an individual Pokemon page listing their moves and information
+    - Front end: make a dynamic individual Pokemon page - 1 day with testing
+    - Back end: create API call to get individual Pokemon details - 1 day with testing
+    - Back end: create API call to get ability details - 1 day with testing
 
-- Imagine the app is a hit and you want to add all other Pokemon and moves instead of just Snorlax. Your product manager asks how long that will take. Write out roughly how you would approach it (including what's required to make it more robust and scalable), and how long you estimate it taking. 
+Total time allocation : 6 days
 
-Stretch goal (if you have time)
-
-- Add functionality to calculate the damage potential for each move based on it's pp (how many times it can be used) and damage (how much damage it does). The damage potential is the product of the two. The damage potential should be displayed in the table and on the move specific page.
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+   [node.js]: <http://nodejs.org>
+   [Next.js]: <https://nextjs.org/>
+   [React]: <https://react.dev/>
+   [Tailwind CSS]: <https://tailwindcss.com/>
+   [localhost:3000]: <http://localhost:3000/>
+   [Vitest]: <https://nextjs.org/docs/app/building-your-application/testing/vitest/>
