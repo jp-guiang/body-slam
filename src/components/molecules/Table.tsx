@@ -1,4 +1,5 @@
 import { useTable } from "react-table";
+import { useRouter } from "next/router";
 
 export type TableProps = {
   className?: string;
@@ -17,6 +18,7 @@ export const Table = ({
   getRowProps,
   noDataMessage,
 }: TableProps) => {
+  const router = useRouter();
   const { getTableProps, getTableBodyProps, flatHeaders, rows, prepareRow } =
     useTable({
       columns,
@@ -24,14 +26,14 @@ export const Table = ({
     });
 
   return (
-    <table {...getTableProps()} className={`w-full border-l p-4 ${className}`}>
+    <table {...getTableProps()} className={`w-full border p-4 ${className}`}>
       <thead>
         <tr>
           {flatHeaders
             .filter((header) => header.columns === undefined)
             .map((header) => (
               // eslint-disable-next-line react/jsx-key
-              <th className="border-b p-4" {...header.getHeaderProps()}>
+              <th className="border-b p-4 uppercase" {...header.getHeaderProps()}>
                 {header.render("Header")}
               </th>
             ))}
@@ -49,7 +51,12 @@ export const Table = ({
             prepareRow(row);
             return (
               // eslint-disable-next-line react/jsx-key
-              <tr {...row.getRowProps(getRowProps && getRowProps(row))}>
+              <tr 
+                onClick={() => router.push(`/${row.original.identifier}`)}
+                {...row.getRowProps(getRowProps && getRowProps(row))}
+                key={row.original.identifier}
+                className="cursor-pointer hover:bg-gray-100"
+              >
                 {row.cells.map((cell) => (
                   // eslint-disable-next-line react/jsx-key
                   <td
