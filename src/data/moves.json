@@ -4,41 +4,47 @@
     "type": "normal",
     "name": "Body Slam",
     "damage": 100,
-    "pp": 10
+    "pp": 10,
+    "image": "bodyslam.gif"
   },
   {
     "identifier": "megapunch",
     "type": "normal",
     "name": "Mega Punch",
     "damage": 80,
-    "pp": 20
+    "pp": 20,
+    "image": "megapunch.png"
   },
   {
     "identifier": "hyperbeam",
     "type": "normal",
     "name": "Hyper Beam",
     "damage": 200,
-    "pp": 5
+    "pp": 5,
+    "image": "hyperbeam.gif"
   },
   {
     "identifier": "rest",
     "type": "psychic",
     "name": "Rest",
     "damage": 0,
-    "pp": 15
+    "pp": 15,
+    "image": "rest.gif"
   },
   {
     "identifier": "bite",
     "type": "dark",
     "name": "Bite",
     "damage": 100,
-    "pp": 10
+    "pp": 10,
+    "image": "bite.gif"
   },
   {
     "identifier": "hammerarm",
     "type": "fighting",
     "name": "Hammer Arm",
     "damage": 200,
-    "pp": 10
+    "pp": 10,
+    "image": "hammerarm.jpg"
   }
 ]

@@ -63,7 +63,9 @@ export const Table = ({
                     className="p-4"
                     {...cell.getCellProps(getCellProps && getCellProps(cell))}
                   >
-                    {cell.render("Cell")}
+                    <p className="capitalize">
+                      {cell.render("Cell")}
+                    </p>
                   </td>
                 ))}
               </tr>

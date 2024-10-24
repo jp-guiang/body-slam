@@ -4,4 +4,5 @@ export type Move = {
   name: string;
   damage: number;
   pp: number;
+  image: string;
 };
